@@ -1,0 +1,691 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Cook Easy</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1189b51b-63ca-80a1-85ff-d136f467cd80" class="page sans"><header><img class="page-cover-image" src="Untitled_design_(3).jpg" style="object-position:center 81.13%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="aa2.png"/></div><h1 class="page-title">Cook Easy</h1><p class="page-description"></p></header><div class="page-body"><blockquote id="1189b51b-63ca-8163-8552-d13d5f1fe13e" class=""><em><strong>“All you need to be a master chef”</strong></em></blockquote><div id="1189b51b-63ca-81af-8dc7-e2e1f4d825f6" class="column-list"><div id="1189b51b-63ca-81c5-bebf-cafd81fb7d4d" style="width:43.75%" class="column"><p id="1189b51b-63ca-8155-9b39-ebb56f583a8e" class=""><mark class="highlight-gray">🍄 Tên nhóm</mark></p><p id="1189b51b-63ca-81d3-9ffe-febe570e390a" class=""><mark class="highlight-gray">☘ Thành viên</mark></p><p id="1189b51b-63ca-8169-86dc-e7f8f2900835" class="">
+</p><p id="1189b51b-63ca-8126-807e-d483f468f783" class="">☀️ Giảng viên</p></div><div id="1189b51b-63ca-8171-9403-fb9d75a54506" style="width:56.24999999999996%" class="column"><p id="1189b51b-63ca-8199-b20e-da81d66a78fa" class="">Group ii</p><p id="1189b51b-63ca-81cc-a4fa-fca90505a920" class="">`Dương Anh Tú </p><p id="1189b51b-63ca-81f3-9b7a-d2475d18a5ae" class="">Nguyễn Thị Kim Chi</p><p id="1189b51b-63ca-8070-b862-f18d7d49ca0a" class="">Ngô Thị Út Thương</p><p id="1189b51b-63ca-8199-953b-d874ef48601f" class="">Hoàng Việt BA</p></div></div><hr id="1189b51b-63ca-818f-b197-cb914264b317"/><figure id="1b58fd6a-6798-4e33-9b5e-87b859a3ce3f" class="image"><a href="All_you_can_need.jpg"><img style="width:1087.2000732421875px" src="All_you_can_need.jpg"/></a></figure><h1 id="1189b51b-63ca-819a-86da-e78aeb47e6a4" class=""><mark class="highlight-teal"><strong>1. Product Overview</strong></mark></h1><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="b57658af-b847-4e1e-943f-0a8b9cd302ec"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><p id="f08f10d4-1155-4cba-8976-ef9b3b6ff866" class=""><mark class="highlight-red"><strong>Problem Statement: </strong></mark></p><p id="3dc716a5-4637-4296-8fc3-b3a9513984ab" class="">Trong cuộc sống bận rộn hiện nay, nhiều người yêu thích nấu ăn nhưng lại gặp phải những thách thức lớn. Thời gian hạn chế, thiếu kiến thức về ẩm thực và việc tìm mua nguyên liệu chất lượng khiến cho việc nấu ăn tại nhà trở nên khó khăn và mất nhiều công sức. Họ cần một giải pháp toàn diện, từ việc tìm kiếm công thức, học hỏi kiến thức nấu ăn cho đến đặt mua nguyên liệu một cách thuận tiện, nhanh chóng.</p></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="4d0ec9a8-2e21-4026-8dee-ce72d65eff3d"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><p id="76d7b2a1-4f93-4d2d-906f-e86cd6cbc898" class=""><mark class="highlight-red"><strong>Solution:</strong></mark></p><p id="4e3afce6-c0ae-48e4-bcc7-90e2cd52ddfe" class="">Cook Easy ra đời để giải quyết tất cả những khó khăn đó. Ứng dụng cung cấp nền tảng học tập và khám phá công thức nấu ăn phong phú, phù hợp với mọi trình độ. Với chức năng mua nguyên liệu trực tuyến từ các siêu thị, người dùng có thể dễ dàng chuẩn bị nguyên liệu chất lượng chỉ với vài cú chạm. Nhờ vào sự tiện lợi và hiệu quả, Cook Easy giúp người dùng tiết kiệm thời gian, nâng cao kỹ năng nấu ăn, và tận hưởng những bữa ăn ngon tự tay chuẩn bị ngay tại nhà.</p></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="d4d8b4fc-f1c3-4c0c-866b-32a27a2ecec6"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><p id="995789b5-027c-452f-a27d-bc647ab6e609" class=""><mark class="highlight-red"><strong>Unique Selling Point (USP):</strong></mark></p><p id="89f822f0-e9d2-47b3-a201-3eec773ad3fb" class="">Cook Easy nổi bật nhờ việc tích hợp cả học tập và hành động trong một ứng dụng duy nhất. Khác với các nền tảng khác chỉ cung cấp công thức nấu ăn, Cook Easy trang bị cho người dùng kiến thức ẩm thực và khả năng đặt mua tất cả nguyên liệu cần thiết tại một nơi. Sự kết hợp độc đáo giữa việc học và tiện lợi này giúp đơn giản hóa quá trình nấu ăn, khiến Cook Easy trở thành người bạn đồng hành lý tưởng cho những đầu bếp tại gia ở mọi cấp độ</p></div></figure><h1 id="a45a19a7-cb84-4456-9a59-aa58ece3d1cd" class=""><mark class="highlight-teal"><strong>2. Market Context</strong></mark></h1><ol type="a" id="ba60696e-114c-48bf-8e99-9989afbae8a7" class="numbered-list" start="1"><li><strong>Market Trend</strong></li></ol><p id="1542076b-8b3b-41de-9706-fdc95f310067" class="">Đại dịch Covid-19 đã làm thay đổi hành vi người tiêu dùng toàn cầu nói chung và, người tiêu dùng Việt nói riêng 1 cách mạnh mẽ. Kết quả khảo sát nhu cầu của hơn 9.000 người tiêu dùng trên 25 quốc gia và vùng lãnh thổ, trong đó có Việt Nam vừa được PwC đưa ra gần đây khẳng định, người tiêu dùng đã thay đổi lối sống và thói quen mua hàng do tác động của dịch Covid-19. Cụ thể:<div class="indented"><ol type="1" id="3538878b-7ad6-4a58-b6c4-9d3629793594" class="numbered-list" start="1"><li>Xu hướng quan tâm hơn tới sức khỏe: 83% số người Việt tham gia cho biết đã thay đổi các ưu tiên về sức khỏe của họ sau dịch (Herbalife)<br/><br/><em><strong>=&gt; Tạo xu hướng cho các phong trào món ăn tự làm tại nhà thay vì ăn đồ ăn nhanh ở ngoài</strong></em></li></ol><ol type="1" id="16ed64d8-35f3-4b73-9833-622b9117ef8b" class="numbered-list" start="2"><li>Xu hướng mua sắm trực tuyến nhiều hơn: có tới 63% người tiêu dùng toàn cầu đã tăng cường mua sắm trực tuyến, trong khi 42% giảm mua sắm tại các cửa hàng<br/><br/><em><strong>=&gt; Tạo điều kiện thuận lợi cho việc mua sắm trên các nền tảng trực tuyến phát triển</strong></em></li></ol></div></p><p id="23f25a19-7b70-4558-8700-07a2711838d6" class="">
+</p><p id="7c94e714-b945-476c-9642-1c0be87b0cea" class=""><strong>b. Market Segmentation</strong></p><ul id="c86183e4-eaa9-4898-b0a0-845b7dbb64ca" class="bulleted-list"><li style="list-style-type:disc">Để phân đoạn thị trường ta sẽ sử dụng tiêu chí độ tuổi (hay trong project này được quy đổi thành Gen - các thế hệ) ở Việt Nam.<ul id="59416881-ad34-4b40-89f3-d43754b4bbb9" class="bulleted-list"><li style="list-style-type:circle">Theo báo cáo We Are Social, Việt Nam có tháp dân số như sau vào năm 2024</li></ul></li></ul><figure id="1c406a63-6fca-41a5-b713-a931ea89c3ae" class="image"><a href="Screenshot_2024-10-09_163945.png"><img style="width:831.3229370117188px" src="Screenshot_2024-10-09_163945.png"/></a></figure><ul id="6fce0a41-a7bd-4b7d-ac0d-36ed98e539f1" class="bulleted-list"><li style="list-style-type:disc">Như vậy ta có thể thấy: <ul id="a777ea27-bf8d-4e29-8293-2d8cbda10c23" class="bulleted-list"><li style="list-style-type:circle">Gen Alpha: 14.7% tổng dân số</li></ul><ul id="bc15195a-e108-4878-b75b-08fd32e759e5" class="bulleted-list"><li style="list-style-type:circle">Gen Z (có độ tuổi từ 12-29 tuổi): chiếm 28.6% tổng dân số</li></ul><ul id="fff871d3-0d2d-4e01-8f71-5ee0bb1f4d02" class="bulleted-list"><li style="list-style-type:circle">Gen Y (có độ tuổi từ 30-44 tuổi): chiếm 23.9% tổng dân số</li></ul><ul id="27d05af8-055a-4e2e-b60a-b2be5c0fb62b" class="bulleted-list"><li style="list-style-type:circle">Gen X (có độ tuổi từ 44-59 tuổi): chiếm 18.1% tổng dân số</li></ul></li></ul><p id="c4fa9792-ccf2-447d-8e06-df5396d1a063" class="">⇒ Từ việc dùng tiêu chí phân đoạn trên ta sẽ chọn được 2 đoạn thị trường tiềm năng nhất đó chính là: <strong>Gen Z và Gen Y</strong></p><p id="da476383-449c-4d8a-8b10-ba03416a54c2" class="">
+</p><p id="66409eb8-21aa-4921-b472-0ae01cce4ad7" class=""><strong>c. Market Targeting</strong></p><ul id="61155f29-c82d-4ff9-b9eb-6ef228ac7948" class="bulleted-list"><li style="list-style-type:disc">Để tiếp tục chọn đoạn thị trường mà project này hướng tới, chúng tôi tiếp tục sử dụng thêm <em><strong>tiêu chí hành vi </strong></em>đối với Gen Z và Gen Y<p id="9012d091-9768-4b48-bf1d-8d18d715e902" class="">
+</p></li></ul><table id="072153f3-2b7e-48b8-89ee-4696f139327e" class="simple-table"><tbody><tr id="ad9cb65a-9894-4e2d-bd78-13344f2c54be"><td id="[}}O" class="">Tiêu chí </td><td id="i=Zp" class="" style="width:324px">Gen Z</td><td id="\RyM" class="" style="width:368px">Gen Y</td></tr><tr id="b4cb07ac-03ab-42d7-b6c3-a70271edac3a"><td id="[}}O" class="">Số giờ sử dụng điện thoại</td><td id="i=Zp" class="" style="width:324px">6.37 giờ/ngày</td><td id="\RyM" class="" style="width:368px">5.57 giờ/ngày</td></tr><tr id="4867db33-878b-4352-9017-cabd3cbe831c"><td id="[}}O" class="">Tỉ lệ thành thạo nấu ăn</td><td id="i=Zp" class="" style="width:324px">33%</td><td id="\RyM" class="" style="width:368px">47%</td></tr><tr id="625c9282-ad4a-4a95-a7ce-6c7a8a1558dd"><td id="[}}O" class="">Các rào cản trong việc nấu tại nhà</td><td id="i=Zp" class="" style="width:324px">- Thiếu kĩ năng: 45%<br/>- Tài chính: 27%<br/>- Thiếu dụng cụ: 8%<br/>- Thiếu không gian nấu: 18%<br/></td><td id="\RyM" class="" style="width:368px">- Thiếu kĩ năng: 27%<br/>- Tài chính: 21%<br/>- Thiếu dụng cụ: 5%<br/>- Thiếu không gian nấu: 14%<br/></td></tr><tr id="6af79461-69c5-4296-996f-3f98597c51e1"><td id="[}}O" class="">Dùng điện thoại khi nấu</td><td id="i=Zp" class="" style="width:324px">66%</td><td id="\RyM" class="" style="width:368px">58%</td></tr></tbody></table><p id="289ff4ec-9db9-4010-92a8-e63aedbe36bb" class=""><em><strong>⇒ Ngoài việc là thế hệ sử dụng điện thoại nhiều nhất, việc sử dụng các thiết bị này còn có sự gắn kết chặt hơn với nấu ăn so với Gen Y. Tuy nhiên, một trong những cản trở lớn nhất trong việc nấu ăn tại nhà đối với Gen Z đó chính là thiếu đi kĩ năng và kiến thức trong nấu nướng</strong></em></p><p id="1b4a28e2-8b61-4917-bd0c-de3441e8a0e3" class=""><em><strong>⇒  Từ các tiêu chí trên ta sẽ chọn đối tượng phục vụ/ hướng tới của app sẽ là Gen Z trong lĩnh vực nấu nướng</strong></em></p><p id="ff0844e2-3f77-4a9f-a68f-f210953a01f6" class="">
+</p><p id="a25a6b7d-dd19-40aa-9550-5c1cb3148a3f" class=""><strong>d. Solutions</strong></p><ul id="563d8588-f72a-40a0-b7ac-e18ea9145414" class="bulleted-list"><li style="list-style-type:disc"><strong>Khi xét lại Gen Z theo 3 tiêu chí: đủ lớn - có thể đo lường được - có thể marketing được -&gt; thỏa mãn </strong></li></ul><ul id="5008d5ed-0703-40c4-bdbb-702120b84426" class="bulleted-list"><li style="list-style-type:disc">Từ phân tích đặc điểm Gen Z ở trên, ta có thể đưa ra app có các đặc điểm như sau: <ul id="ad27ef37-62b4-4db8-8c77-e0fe15e99f63" class="bulleted-list"><li style="list-style-type:circle">Cung cấp một lượng lớn các công thức nấu ăn (từ Việt Nam, đến châu Á, châu Âu) dựa vào nguyên liệu, thời gian chuẩn bị, level của người dùng. </li></ul><ul id="b9488d1b-57ad-40fc-8b8e-75f621d62ea2" class="bulleted-list"><li style="list-style-type:circle">Ngoài ra còn liên kết với các bên khác nhau để tạo nền tảng mua sắm nguyên liệu nấu ăn trực tuyến.</li></ul><ul id="f62fcccd-112a-47e0-9717-f6e74866f405" class="bulleted-list"><li style="list-style-type:circle">Bên cạnh đó, khi xét về đặc điểm của các bạn Gen Z: Vì được sống trong thời kì công nghệ, Gen Z có khả năng tập trung kém hơn các Gen còn lại: cụ thể, Gen Z có thời gian tập trung là 8 giây, ít hơn 4 giây so với Gen Y. Từ kết quả trên, Gen Z có xu hướng mong muốn được kết quả tức thì trong hành động của họ.</li></ul></li></ul><p id="178ef194-8db1-488e-b7d4-52934883e13e" class=""><em>⇒ Format hướng dẫn học nấu ăn hiệu quả cho Gen Z là: </em><em><strong>game hóa (gamification)</strong></em></p><ul id="98d700cb-1786-4046-8b81-f2fcd26d54d4" class="bulleted-list"><li style="list-style-type:disc"><em>Format này tăng tính thu hút lên 60%</em></li></ul><ul id="61c9c79a-062e-4fb1-a778-110c457dc292" class="bulleted-list"><li style="list-style-type:disc"><em>Việc Game hóa có thể giúp người chơi đạt được thỏa mãn tức thì dưới dạng cấp độ, thành tựu, phần thưởng…</em></li></ul><h3 id="1189b51b-63ca-81b8-9f19-c972bbb35f3f" class="">Nhận thấy (<mark class="highlight-teal">Insight</mark>)</h3><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1189b51b-63ca-8167-951f-c9e9e42121e5"><div style="font-size:1.5em"><span class="icon">😣</span></div><div style="width:100%">Mặc dù giới hạn về mặt thời gian và tài chính cũng là một yếu tố, nhưng rào cản lớn nhất ngăn cản người trẻ tự nấu ăn tại nhà nhiều hơn là do thiếu động lực (bắt nguồn từ sự thiếu kiến thức và tự tin vào khả năng của bản thân)<p id="1189b51b-63ca-803b-88db-e9423d5dcfe2" class="">
+</p></div></figure><h3 id="1189b51b-63ca-8162-8d88-de5aa53602d5" class=""><strong>Vì vậy (</strong><mark class="highlight-teal"><strong>Change</strong></mark><strong>)</strong></h3><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1189b51b-63ca-8178-b277-e1afcdee0e60"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Từ những thách thức và nhu cầu thực tế về sự tập trung, sự ra đời của một ứng dụng tập trung tích hợp mô hình game hóa nuôi pet ảo có tiềm năng lớn trong việc giải quyết vấn đề mất tập trung. Ứng dụng này sẽ giúp người dùng tăng cường khả năng tập trung thông qua những khoảng thời gian làm việc tập trung xen kẽ với nghỉ ngơi ngắn, đồng thời sử dụng tiền ảo kiếm được để tương tác và chăm sóc pet ảo, từ đó tăng động lực và sự thích thú trong quá trình làm việc hoặc học tập.</div></figure><h1 id="1189b51b-63ca-81a2-bde1-dd9dda46d80e" class=""><mark class="highlight-teal"><strong>3. Interview</strong></mark></h1><p id="1189b51b-63ca-81e7-a45c-c189f7952b2f" class="">Dựa vào những thông tin thu nghiên cứu sơ bộ từ các nguồn thứ cấp (Desk Research), chúng tôi tiến hành Interview để củng cố những luận điểm của Desk Research cũng như tìm hiểu sâu hơn những ý kiến, quan điểm và hành vi của người dùng khi xây dựng ứng dụng </p><h3 id="1189b51b-63ca-81ac-af2b-e472c73a2a0c" class=""><mark class="highlight-teal">A. Mục đích phỏng vấn</mark></h3><ul id="1189b51b-63ca-81b1-8435-ec1fbd2769fd" class="bulleted-list"><li style="list-style-type:disc"><strong>Hiểu rõ như cầu người dùng: </strong>biết được điều gì quan trọng với người dùng, từ đó phát triển các tính năng phù hợp. <ul id="1189b51b-63ca-8182-a436-ccadcfd9bf8c" class="bulleted-list"><li style="list-style-type:circle">Hiểu được nguyên nhân chính khiến người dùng bị mất tập trung trong quá trình làm việc</li></ul><ul id="1189b51b-63ca-8129-a3a3-d0eb8b1f6c65" class="bulleted-list"><li style="list-style-type:circle">Thu thập thông tin về sở thích, hành vi và kỳ vọng của người dùng, cũng như hiểu được những gì họ mong muốn và cần thiết từ ứng dụng</li></ul></li></ul><ul id="1189b51b-63ca-8147-97db-fe8952f272e8" class="bulleted-list"><li style="list-style-type:disc"><strong>Xác định các tính năng cần thiết:</strong> Qua các câu hỏi, nhóm có thể xác định được những tính năng cốt lõi cần phải có trong ứng dụng để đáp ứng yêu cầu của người dùng, đồng thời loại bỏ hoặc không ưu tiên phát triển những tính năng ít quan trọng hơn.</li></ul><ul id="1189b51b-63ca-817e-b043-c564adca619f" class="bulleted-list"><li style="list-style-type:disc">Đưa ra  quyết định chính xác về hướng phát triển ứng dụng, đảm bảo rằng sản phẩm cuối cùng sẽ đáp ứng được mục tiêu kinh doanh và sự hài lòng của người dùng.</li></ul><h3 id="1189b51b-63ca-8170-95da-e31d6b4a5ce0" class=""><mark class="highlight-teal">B. Đối tượng phỏng vấn</mark></h3><ul id="1189b51b-63ca-8189-a501-e01eccbc74bc" class="bulleted-list"><li style="list-style-type:disc"> <strong>Giới tính :</strong> Nam, nữ.</li></ul><ul id="11a9b51b-63ca-801c-9b30-c5542eb5c119" class="bulleted-list"><li style="list-style-type:disc"><strong>Độ tuổi từ 18-40 tuổi</strong></li></ul><ul id="1189b51b-63ca-819e-95a9-f9492a86bbbc" class="bulleted-list"><li style="list-style-type:disc"><strong>Sinh viên (18-22 tuổi)</strong>: Nhóm đối tượng này đang trải nghiệm môi trường học tập mới với nhiều tự do hơn .Việc phỏng vấn nhóm tuổi từ 18-22 sẽ giúp nắm bắt những thay đổi trong thói quen ăn uống và nấu ăn của thế hệ trẻ, đồng thời tìm ra những yếu tố thúc đẩy hoặc cản trở thói quen nấu ăn của họ.</li></ul><ul id="11a9b51b-63ca-80dd-b447-ec5e6f91785d" class="bulleted-list"><li style="list-style-type:disc"><strong>Người trưởng thành (23-30 tuổi): </strong>Nhóm đối tượng này là những người vừa mới ra trường hoặc đã đi làm thuê và có thu nhập ổn định. Việc phỏng vấn nhóm đối tượng từ 23-30 tuổi giúp hiểu rõ hơn về các thay đổi trong thói quen nấu ăn khi họ bắt đầu trưởng thành, có công việc ổn định và các trách nhiệm cá nhân. Điều này có thể cung cấp thông tin hữu ích về xu hướng tiêu dùng thực phẩm, sự phát triển của lối sống lành mạnh và cách họ đối phó với áp lực thời gian trong cuộc sống hiện đại.</li></ul><ul id="1189b51b-63ca-8117-80db-d0a26f2fa1b1" class="bulleted-list"><li style="list-style-type:disc"><strong>Người có gia đình(30-35 tuổi): N</strong>hóm đối tượng từ 30-40 tuổi, đã có gia đình, sẽ giúp thu thập thông tin về cách mà thói quen nấu ăn của họ thay đổi khi bước vào giai đoạn có trách nhiệm gia đình. Điều này sẽ cung cấp cái nhìn sâu sắc về cách họ quản lý việc nấu ăn trong một gia đình, cũng như những yếu tố ảnh hưởng đến các quyết định nấu ăn, từ dinh dưỡng đến thời gian và công nghệ.</li></ul><h3 id="1189b51b-63ca-81fe-994b-e3cc104d097b" class=""><mark class="highlight-teal">C. Danh sách câu hỏi phỏng vấn </mark></h3><ol type="1" id="11a9b51b-63ca-80dc-a8b7-c758373893ac" class="numbered-list" start="1"><li>Bạn có thường xuyên nấu ăn tại nhà không?<ul id="330aff76-9eb4-4164-abda-f5b47d983742" class="bulleted-list"><li style="list-style-type:disc">Tại sao bạn không nấu ăn tại nhà thường xuyên?</li></ul></li></ol><ol type="1" id="11a9b51b-63ca-8084-a6d6-da6e702971dc" class="numbered-list" start="2"><li>Lý do bạn muốn nấu ăn tại nhà nhiều hơn (lợi ích về thể chất/tài chính/tinh thần)?</li></ol><ol type="1" id="11a9b51b-63ca-8064-aa5b-d0f9b1039c3c" class="numbered-list" start="3"><li>Những tiêu chí bạn ưu tiên khi nấu ăn tại nhà?</li></ol><ol type="1" id="11a9b51b-63ca-80ef-bbbd-f7993b959238" class="numbered-list" start="4"><li>Bạn nghĩ nếu được thay đổi một điều để giúp việc nấu ăn thuận tiện và thường xuyên hơn, bạn sẽ chọn thay đổi điều gì?</li></ol><ol type="1" id="11a9b51b-63ca-8047-8756-ed316154856c" class="numbered-list" start="5"><li>Kể về một lần nấu ăn gần nhất khiến bạn mất động lực làm điều đó vào lần tiếp theo?</li></ol><ol type="1" id="11a9b51b-63ca-807a-a91b-c1dbae712c72" class="numbered-list" start="6"><li>Bạn có bao giờ tham khảo ý kiến từ mạng xã hội hoặc các trang web nấu ăn cụ thể nào để định hình tiêu chí của mình không ạ ?</li></ol><ol type="1" id="11a9b51b-63ca-8073-8f1d-d0ef67ca7272" class="numbered-list" start="7"><li>Bạn có giải pháp nào giúp người trẻ hiện nay nấu ăn nhiều hơn không ?</li></ol><h3 id="1189b51b-63ca-81f3-99eb-dcaab101ce20" class=""></h3><h3 id="1189b51b-63ca-81a2-b55b-ec837bcf091f" class=""><mark class="highlight-teal"><strong>D. Danh sách đáp viên</strong></mark></h3><p id="1189b51b-63ca-812b-b9f4-ffc0a15bd548" class="">
+</p><div id="1189b51b-63ca-8127-97f5-c517731379b7" class="collection-content"><h4 class="collection-title">Danh sách ứng viên</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>Ứng viên</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/clover-four-leaf_gray.svg" style="width:14px;height:14px"/></span>Họ và Tên:</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/gift_gray.svg" style="width:14px;height:14px"/></span>Giới tính</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>Nghề nghiệp</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>Tuổi</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesDate"><path d="M3.29688 14.4561H12.7031C14.1797 14.4561 14.9453 13.6904 14.9453 12.2344V3.91504C14.9453 2.45215 14.1797 1.69336 12.7031 1.69336H3.29688C1.82031 1.69336 1.05469 2.45215 1.05469 3.91504V12.2344C1.05469 13.6973 1.82031 14.4561 3.29688 14.4561ZM3.27637 13.1162C2.70898 13.1162 2.39453 12.8154 2.39453 12.2207V5.9043C2.39453 5.30273 2.70898 5.00879 3.27637 5.00879H12.71C13.2842 5.00879 13.6055 5.30273 13.6055 5.9043V12.2207C13.6055 12.8154 13.2842 13.1162 12.71 13.1162H3.27637ZM6.68066 7.38086H7.08398C7.33008 7.38086 7.41211 7.30566 7.41211 7.05957V6.66309C7.41211 6.41699 7.33008 6.3418 7.08398 6.3418H6.68066C6.44141 6.3418 6.35938 6.41699 6.35938 6.66309V7.05957C6.35938 7.30566 6.44141 7.38086 6.68066 7.38086ZM8.92285 7.38086H9.31934C9.56543 7.38086 9.64746 7.30566 9.64746 7.05957V6.66309C9.64746 6.41699 9.56543 6.3418 9.31934 6.3418H8.92285C8.67676 6.3418 8.59473 6.41699 8.59473 6.66309V7.05957C8.59473 7.30566 8.67676 7.38086 8.92285 7.38086ZM11.1582 7.38086H11.5547C11.8008 7.38086 11.8828 7.30566 11.8828 7.05957V6.66309C11.8828 6.41699 11.8008 6.3418 11.5547 6.3418H11.1582C10.9121 6.3418 10.8301 6.41699 10.8301 6.66309V7.05957C10.8301 7.30566 10.9121 7.38086 11.1582 7.38086ZM4.44531 9.58203H4.84863C5.09473 9.58203 5.17676 9.50684 5.17676 9.26074V8.86426C5.17676 8.61816 5.09473 8.54297 4.84863 8.54297H4.44531C4.20605 8.54297 4.12402 8.61816 4.12402 8.86426V9.26074C4.12402 9.50684 4.20605 9.58203 4.44531 9.58203ZM6.68066 9.58203H7.08398C7.33008 9.58203 7.41211 9.50684 7.41211 9.26074V8.86426C7.41211 8.61816 7.33008 8.54297 7.08398 8.54297H6.68066C6.44141 8.54297 6.35938 8.61816 6.35938 8.86426V9.26074C6.35938 9.50684 6.44141 9.58203 6.68066 9.58203ZM8.92285 9.58203H9.31934C9.56543 9.58203 9.64746 9.50684 9.64746 9.26074V8.86426C9.64746 8.61816 9.56543 8.54297 9.31934 8.54297H8.92285C8.67676 8.54297 8.59473 8.61816 8.59473 8.86426V9.26074C8.59473 9.50684 8.67676 9.58203 8.92285 9.58203ZM11.1582 9.58203H11.5547C11.8008 9.58203 11.8828 9.50684 11.8828 9.26074V8.86426C11.8828 8.61816 11.8008 8.54297 11.5547 8.54297H11.1582C10.9121 8.54297 10.8301 8.61816 10.8301 8.86426V9.26074C10.8301 9.50684 10.9121 9.58203 11.1582 9.58203ZM4.44531 11.7832H4.84863C5.09473 11.7832 5.17676 11.708 5.17676 11.4619V11.0654C5.17676 10.8193 5.09473 10.7441 4.84863 10.7441H4.44531C4.20605 10.7441 4.12402 10.8193 4.12402 11.0654V11.4619C4.12402 11.708 4.20605 11.7832 4.44531 11.7832ZM6.68066 11.7832H7.08398C7.33008 11.7832 7.41211 11.708 7.41211 11.4619V11.0654C7.41211 10.8193 7.33008 10.7441 7.08398 10.7441H6.68066C6.44141 10.7441 6.35938 10.8193 6.35938 11.0654V11.4619C6.35938 11.708 6.44141 11.7832 6.68066 11.7832ZM8.92285 11.7832H9.31934C9.56543 11.7832 9.64746 11.708 9.64746 11.4619V11.0654C9.64746 10.8193 9.56543 10.7441 9.31934 10.7441H8.92285C8.67676 10.7441 8.59473 10.8193 8.59473 11.0654V11.4619C8.59473 11.708 8.67676 11.7832 8.92285 11.7832Z"></path></svg></span>Ngày PV</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/daisy_gray.svg" style="width:14px;height:14px"/></span>Người PV</th></tr></thead><tbody><tr id="1189b51b-63ca-81fa-9ef6-c0f1eb471077"><td class="cell-title"><a href="https://www.notion.so/1189b51b63ca81fa9ef6c0f1eb471077?pvs=21">@Interview bạn Phương Anh </a></td><td class="cell-zeby">Nguyễn Phương Anh</td><td class="cell-tNa?">Nữ</td><td class="cell-B;Zv">Sinh Viên</td><td class="cell-zJnS">21</td><td class="cell-{rX^"><time>@October 9, 2024</time></td><td class="cell-SLe?">Thương</td></tr><tr id="1189b51b-63ca-8132-9660-cfb70737b380"><td class="cell-title"><a href="https://www.notion.so/Interview-anh-o-Xu-n-H-ng-1189b51b63ca81329660cfb70737b380?pvs=21">💜Interview anh Đào Xuân Hưng</a></td><td class="cell-zeby">Đào Xuân Hưng</td><td class="cell-tNa?">Nam</td><td class="cell-B;Zv">Nhân viên kỹ thuật</td><td class="cell-zJnS">26</td><td class="cell-{rX^"><time>@October 9, 2024</time></td><td class="cell-SLe?">Thương</td></tr><tr id="1189b51b-63ca-8159-91be-fdda9a618d1c"><td class="cell-title"><a href="https://www.notion.so/Interview-ch-Phan-Tr-My-1189b51b63ca815991befdda9a618d1c?pvs=21">💜Interview chị Phan Trà My</a></td><td class="cell-zeby">Phan Trà My</td><td class="cell-tNa?">Nữ</td><td class="cell-B;Zv">Nhân viên văn phòng</td><td class="cell-zJnS">32</td><td class="cell-{rX^"><time>@October 9, 2024</time></td><td class="cell-SLe?">Thương</td></tr></tbody></table><br/><br/></div><h3 id="1189b51b-63ca-817f-81ab-daea0afabb11" class=""></h3><h1 id="1189b51b-63ca-8174-bc71-f73dd096ae62" class=""><mark class="highlight-teal"><strong>4. Personas</strong></mark></h1><h2 id="1189b51b-63ca-8189-a09d-c937ad81d550" class=""><strong>Persona 1: Ngô Lam Anh</strong></h2><ul id="1189b51b-63ca-81cb-9d63-ef5dff885fc4" class="bulleted-list"><li style="list-style-type:disc">Tên: Ngô Lam Anh</li></ul><ul id="1189b51b-63ca-81dc-95f5-df958339156c" class="bulleted-list"><li style="list-style-type:disc">Tuổi: 26</li></ul><ul id="1189b51b-63ca-8103-8c25-c449b2b18b4b" class="bulleted-list"><li style="list-style-type:disc">Giới tính: Nữ</li></ul><ul id="1189b51b-63ca-8168-9909-e567dad42208" class="bulleted-list"><li style="list-style-type:disc">Nghề nghiệp: Kinh doanh tự do</li></ul><p id="1189b51b-63ca-8114-aa4a-f0be18f52c41" class=""><strong>Context: </strong>Lam Anh là một người kinh doanh tự do, chuyên làm việc trong lĩnh vực content marketing và tư vấn chiến lược cho các thương hiệu nhỏ và startup . Cô yêu thích nấu ăn và khám phá các công thức nấu ăn mới</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1189b51b-63ca-81a3-aa59-df765949c4df"><div style="font-size:1.5em"><span class="icon">⭐</span></div><div style="width:100%"><em><strong>&quot;Với tôi, đồ ăn là thứ chữa lành tốt nhất”</strong></em></div></figure><figure id="11a9b51b-63ca-80fe-b883-d56e516442da" class="image"><a href="Screenshot_2024-10-09_172611.png"><img style="width:1087.175048828125px" src="Screenshot_2024-10-09_172611.png"/></a></figure><h2 id="1189b51b-63ca-8143-ac0c-d656c45c4bb0" class=""><strong>Persona 2: Luật sư Lê Minh Hoàng</strong></h2><ul id="1189b51b-63ca-81d8-812e-f1a006aadc3f" class="bulleted-list"><li style="list-style-type:disc">Tên: Lê MInh Hoàng</li></ul><ul id="1189b51b-63ca-8158-9cc4-ec56c9d22ec2" class="bulleted-list"><li style="list-style-type:disc">Tuổi: 32</li></ul><ul id="1189b51b-63ca-81c2-b0ac-ff48cfe84763" class="bulleted-list"><li style="list-style-type:disc">Giới tính: Nam</li></ul><ul id="1189b51b-63ca-8158-a71f-eec21cc77a37" class="bulleted-list"><li style="list-style-type:disc">Nghề nghiệp: Luật sư</li></ul><p id="1189b51b-63ca-81ea-ad25-c1bf387ab642" class=""><strong>Context:</strong>  Lê Minh Hoàng là một luật sư chuyên về luật doanh nghiệp, với công việc đòi hỏi thời gian và sự tập trung cao.Anh thích nấu ăn khi ở một mình vì anh luôn chú trọng đến sức khỏe của mình</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1189b51b-63ca-8170-8d69-e653aa12f31c"><div style="font-size:1.5em"><span class="icon">💜</span></div><div style="width:100%">“Nấu ăn giúp tôi giải tỏa áp lực sau các buổi tan làm”</div></figure><figure id="11a9b51b-63ca-8089-a929-d07014ea87ca" class="image"><a href="Screenshot_2024-10-09_190916.png"><img style="width:1087.175048828125px" src="Screenshot_2024-10-09_190916.png"/></a></figure><h1 id="1189b51b-63ca-8104-a2d1-c1828fab9661" class=""><mark class="highlight-teal"><strong>5. Competitors Analysis</strong></mark></h1><h3 id="1189b51b-63ca-8135-b941-c271afc14454" class=""><mark class="highlight-teal">Mục đích:</mark></h3><ul id="1189b51b-63ca-81a0-8b3c-db014a0386c2" class="bulleted-list"><li style="list-style-type:disc">Đánh giá đối thủ để xác định hướng đi phù hợp, rút kinh nghiệm từ các sản phẩm đi trước </li></ul><h3 id="1189b51b-63ca-81a0-a0a4-cf5d3cf3378f" class=""><mark class="highlight-teal">Đối thủ nghiên cứu: </mark></h3><ul id="a42e4452-5636-4d18-a1b1-ff58813ca12e" class="toggle"><li><details open=""><summary><strong>1. ShopeeFood</strong></summary><ul id="e6b9f231-f2ff-404c-bac4-0a4617eefca9" class="bulleted-list"><li style="list-style-type:disc"><strong>Điểm mạnh:</strong><ul id="28314bae-ba8d-4610-bf1e-2511ac78fa2f" class="bulleted-list"><li style="list-style-type:circle"><strong>Mạng lưới cửa hàng đối tác rộng khắp: </strong>ShopeeFood hợp tác với rất nhiều siêu thị, cửa hàng tiện lợi và các nhà cung cấp thực phẩm tươi sống, giúp người dùng có nhiều lựa chọn phong phú về địa điểm đặt mua nguyên liệu.</li></ul><ul id="522b574c-6bcd-4d09-ad78-7824a02c42e9" class="bulleted-list"><li style="list-style-type:circle"><strong>Nhiều tính năng tích hợp trong hệ sinh thái Shopee: </strong>Là một phần của nền tảng thương mại điện tử Shopee, ShopeeFood có lợi thế lớn về tập người dùng sẵn có, dễ dàng sử dụng hệ thống thanh toán, tích điểm và hưởng các ưu đãi hấp dẫn từ Shopee.</li></ul></li></ul><ul id="2763d7f6-f93d-4db0-9413-6646c26468b6" class="bulleted-list"><li style="list-style-type:disc"><strong>Điểm yếu:</strong><ul id="bfb515b0-6490-468c-ae67-5031e07b6d8b" class="bulleted-list"><li style="list-style-type:circle"><strong>Thiếu sự tập trung vào nấu ăn:</strong> ShopeeFood chủ yếu tập trung vào giao đồ ăn nấu sẵn và các nguyên liệu đơn lẻ. Họ không cung cấp công thức hay các dịch vụ liên quan đến học nấu ăn, điều mà Cook Easy có thể làm tốt hơn.</li></ul><ul id="5a19155e-6f9a-40c2-85b0-38ad30bc3143" class="bulleted-list"><li style="list-style-type:circle"><strong>Khả năng cá nhân hóa còn hạn chế:</strong> ShopeeFood không tập trung vào việc đề xuất nguyên liệu dựa trên sở thích hay nhu cầu cá nhân của người dùng. Điều này tạo ra cơ hội cho Cook Easy trong việc cung cấp trải nghiệm được cá nhân hóa.</li></ul></li></ul></details></li></ul><ul id="56d5c884-0d4a-430f-a7b3-05aad9b32cee" class="toggle"><li><details open=""><summary><strong>2. VinMart Online</strong></summary><ul id="b732fbe8-7284-42b5-be00-4659496d1f01" class="bulleted-list"><li style="list-style-type:disc"><strong>Điểm mạnh:</strong><ul id="830a533d-d2cd-4b91-a6c2-fe7b5f44a502" class="bulleted-list"><li style="list-style-type:circle"><strong>Chất lượng và sự tin cậy của sản phẩm: </strong>VinMart là thương hiệu siêu thị lớn và uy tín tại Việt Nam, đảm bảo chất lượng sản phẩm với nguồn cung cấp thực phẩm tươi sạch, có chứng nhận an toàn vệ sinh thực phẩm. Điều này giúp người dùng tin tưởng khi đặt mua nguyên liệu trực tuyến.</li></ul><ul id="b74d3c08-807f-42ab-8753-5486233de118" class="bulleted-list"><li style="list-style-type:circle"><strong>Hệ thống siêu thị rộng khắp:</strong> Với mạng lưới siêu thị rộng khắp, VinMart Online có khả năng giao hàng nhanh chóng và tiện lợi cho người dùng ở nhiều địa điểm, đặc biệt là các thành phố lớn.</li></ul></li></ul><ul id="6f38d598-fbd2-4a57-a54d-1df6390f26f6" class="bulleted-list"><li style="list-style-type:disc"><strong>Điểm yếu:</strong><ul id="23b6739c-f880-49e2-b4c6-6386c9f36875" class="bulleted-list"><li style="list-style-type:circle"><strong>Giá thành cao</strong>: VinMart Online thường được biết đến với mức giá cao hơn so với một số đối thủ cạnh tranh khác trong thị trường giao hàng thực phẩm. Điều này có thể khiến người tiêu dùng tìm kiếm các lựa chọn tiết kiệm hơn từ các nền tảng khác hoặc cửa hàng truyền thống. Sự chênh lệch về giá có thể làm giảm khả năng cạnh tranh của VinMart Online, đặc biệt trong bối cảnh thị trường ngày càng cạnh tranh với nhiều ứng dụng cung cấp dịch vụ giao hàng thực phẩm với giá cả phải chăng hơn. Điều này cũng tạo ra cơ hội cho <strong>Cook Easy</strong> để định giá hợp lý cho các nguyên liệu và sản phẩm nấu ăn, đồng thời cung cấp các ưu đãi hấp dẫn để thu hút người dùng.</li></ul><ul id="f4173d55-841e-4876-a12f-f462bd347003" class="bulleted-list"><li style="list-style-type:circle"><strong>Sản phẩm chưa đa dạng</strong>: Mặc dù VinMart Online cung cấp nhiều loại thực phẩm và nguyên liệu, nhưng sự đa dạng của sản phẩm vẫn chưa đạt đến mức mong đợi. Người dùng có thể gặp khó khăn trong việc tìm kiếm một số nguyên liệu đặc biệt hoặc món ăn độc đáo mà họ muốn nấu. Điều này có thể làm giảm sự hấp dẫn của nền tảng đối với những người yêu thích ẩm thực, đặc biệt là những người muốn khám phá các công thức nấu ăn quốc tế hoặc có khẩu vị đa dạng. Điều này mở ra cơ hội cho Cook Easy cung cấp nhiều lựa chọn nguyên liệu hơn, bao gồm cả nguyên liệu đặc trưng từ nhiều vùng miền và quốc gia khác nhau, cùng với việc tích hợp công thức nấu ăn đa dạng.</li></ul><hr id="13a44b46-c900-449e-a98f-e3c7acb54428"/><p id="89d24ae7-6ce5-4b2e-8a41-5fab1ed280b0" class="">Nếu bạn cần thêm thông tin hoặc muốn phân tích thê</p></li></ul></details></li></ul><h1 id="1189b51b-63ca-815d-a684-c26ef3c5f07c" class=""><mark class="highlight-teal">6. BPMN</mark></h1><p id="ceb1d009-4c5a-4eff-82c2-f6f1395d4b8b" class=""><strong>6.1. Quy trình mua nguyên liệu từ màn nguyên liệu</strong></p><figure id="a1f5d962-7aca-4ae0-97e0-80883139a429" class="image"><a href="Screenshot_2024-10-09_171656.png"><img style="width:831.3229370117188px" src="Screenshot_2024-10-09_171656.png"/></a></figure><p id="1189b51b-63ca-8187-b32a-c63efdfbef66" class=""><strong>6.2. Quy trình mua nguyên liệu từ màn tìm kiếm</strong></p><figure id="11a9b51b-63ca-805f-be22-c9d67647aed9" class="image"><a href="Screenshot_2024-09-28_085104.png"><img style="width:1087.175048828125px" src="Screenshot_2024-09-28_085104.png"/></a></figure><h1 id="1189b51b-63ca-8141-887c-d64d14f8eeb7" class=""><mark class="highlight-teal">7. Product Feature List</mark></h1><h2 id="1189b51b-63ca-81d6-b05b-f5c8c4a54a52" class=""><mark class="highlight-teal">7.1. Use Case List</mark></h2><table id="b152910c-c38b-4605-a80a-13b429ed6704" class="simple-table"><tbody><tr id="399099e3-3716-4f3c-a8f6-5276a34394c5"><td id="p{~h" class=""><strong>ID</strong></td><td id="LY_K" class=""><strong>Module</strong></td><td id="DjzA" class=""><strong>Use Case</strong></td><td id=";]W~" class=""><strong>Description</strong></td><td id="I@DM" class=""><strong>Primary Actors</strong></td></tr><tr id="f844fe31-1e11-4f7b-bff6-214f917d21c6"><td id="p{~h" class=""><strong>UC-01</strong></td><td id="LY_K" class=""><strong>Account</strong></td><td id="DjzA" class="">Sign up</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="76acc3ed-e054-4785-bfbb-06198d68dc45"><td id="p{~h" class=""><strong>UC-02</strong></td><td id="LY_K" class=""><strong>Account</strong></td><td id="DjzA" class="">Sign in</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="e43b4164-d389-4d1c-ac13-f1e2bdb73103"><td id="p{~h" class=""><strong>UC-03</strong></td><td id="LY_K" class=""><strong>Account</strong></td><td id="DjzA" class="">Set up account</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="7ece037b-2541-4d34-97ea-4cbb7fe927df"><td id="p{~h" class=""><strong>UC-04</strong></td><td id="LY_K" class=""><strong>Account</strong></td><td id="DjzA" class="">See personal information</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="06c34f4d-9113-433e-982d-c0022fcf899b"><td id="p{~h" class=""><strong>UC-05</strong></td><td id="LY_K" class=""><strong>Account</strong></td><td id="DjzA" class="">Edit personal information</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="703e7975-5059-4963-bf8b-208bc7c858b5"><td id="p{~h" class=""><strong>UC-06</strong></td><td id="LY_K" class=""><strong>Account</strong></td><td id="DjzA" class="">Delete account</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="8797691a-af4f-42d2-8311-de631b8a0b71"><td id="p{~h" class=""><strong>UC-07</strong></td><td id="LY_K" class=""><strong>Account</strong></td><td id="DjzA" class="">Sign up</td><td id=";]W~" class=""></td><td id="I@DM" class="">Supermarket partner</td></tr><tr id="67dee93f-9bbb-41fe-837e-97c0c0672629"><td id="p{~h" class=""><strong>UC-08</strong></td><td id="LY_K" class=""><strong>Account</strong></td><td id="DjzA" class="">Sign in</td><td id=";]W~" class=""></td><td id="I@DM" class="">Supermarket partner</td></tr><tr id="9727d4d9-a4ee-494a-8d83-0fb0653b066b"><td id="p{~h" class=""><strong>UC-09</strong></td><td id="LY_K" class=""><strong>Account</strong></td><td id="DjzA" class="">Verify business</td><td id=";]W~" class="">Supermarket upload relevant paperwork to verify business</td><td id="I@DM" class="">Supermarket partner</td></tr><tr id="c5b23396-993e-4e39-8ec0-feafabaabd67"><td id="p{~h" class=""><strong>UC-10</strong></td><td id="LY_K" class=""><strong>Account</strong></td><td id="DjzA" class="">Set up account</td><td id=";]W~" class=""></td><td id="I@DM" class="">Supermarket partner</td></tr><tr id="532354e9-ea17-4031-9118-fda5bae67a00"><td id="p{~h" class=""><strong>UC-11</strong></td><td id="LY_K" class=""><strong>Account</strong></td><td id="DjzA" class="">See personal information</td><td id=";]W~" class=""></td><td id="I@DM" class="">Supermarket partner</td></tr><tr id="3aa63c97-1bfa-474e-bd18-504d230a9cf3"><td id="p{~h" class=""><strong>UC-12</strong></td><td id="LY_K" class=""><strong>Account</strong></td><td id="DjzA" class="">Edit personal information</td><td id=";]W~" class=""></td><td id="I@DM" class="">Supermarket partner</td></tr><tr id="afdb88bf-0a42-4871-bc1e-b26116324790"><td id="p{~h" class=""><strong>UC-13</strong></td><td id="LY_K" class=""><strong>Account</strong></td><td id="DjzA" class="">Delete account</td><td id=";]W~" class=""></td><td id="I@DM" class="">Supermarket partner</td></tr><tr id="bb776081-61d9-461f-a279-3149310863b9"><td id="p{~h" class=""><strong>UC-14</strong></td><td id="LY_K" class=""><strong>Account</strong></td><td id="DjzA" class="">Sign up</td><td id=";]W~" class=""></td><td id="I@DM" class="">Shipment partner</td></tr><tr id="983dc031-5952-4bab-ade8-c26916d4d293"><td id="p{~h" class=""><strong>UC-15</strong></td><td id="LY_K" class=""><strong>Account</strong></td><td id="DjzA" class="">Sign in</td><td id=";]W~" class=""></td><td id="I@DM" class="">Shipment partner</td></tr><tr id="aed7ce67-35ee-4aba-ae56-f57af5d4d661"><td id="p{~h" class=""><strong>UC-16</strong></td><td id="LY_K" class=""><strong>Account</strong></td><td id="DjzA" class="">Set up account</td><td id=";]W~" class=""></td><td id="I@DM" class="">Shipment partner</td></tr><tr id="5b98669c-a389-4714-ba1a-cf27f3a14981"><td id="p{~h" class=""><strong>UC-17</strong></td><td id="LY_K" class=""><strong>Account</strong></td><td id="DjzA" class="">See personal information</td><td id=";]W~" class=""></td><td id="I@DM" class="">Shipment partner</td></tr><tr id="a94b7735-67ee-4ce5-ab15-618e63731c20"><td id="p{~h" class=""><strong>UC-18</strong></td><td id="LY_K" class=""><strong>Account</strong></td><td id="DjzA" class="">Edit personal information</td><td id=";]W~" class=""></td><td id="I@DM" class="">Shipment partner</td></tr><tr id="871d1e25-f026-444c-b95a-8eca124b4d42"><td id="p{~h" class=""><strong>UC-19</strong></td><td id="LY_K" class=""><strong>Account</strong></td><td id="DjzA" class="">Delete account</td><td id=";]W~" class=""></td><td id="I@DM" class="">Shipment partner</td></tr><tr id="5f66b9a6-8213-4807-afed-5f9dfd8de94a"><td id="p{~h" class=""><strong>UC-20</strong></td><td id="LY_K" class=""><strong>Cooking lesson</strong></td><td id="DjzA" class="">View the cooking lesson roadmap</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="e132174e-7bcb-42cb-b8a8-ed6612f39c02"><td id="p{~h" class=""><strong>UC-21</strong></td><td id="LY_K" class=""><strong>Cooking lesson</strong></td><td id="DjzA" class="">Learn cooking lesson</td><td id=";]W~" class="">Learn the knowledge of a cooking topic and take the related quiz</td><td id="I@DM" class="">User</td></tr><tr id="65e44583-f361-479f-b98d-044dfe7b852d"><td id="p{~h" class=""><strong>UC-22</strong></td><td id="LY_K" class=""><strong>Cooking lesson</strong></td><td id="DjzA" class="">Claim rewards</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="f6741c25-d0c1-445f-86c9-91d370ad1483"><td id="p{~h" class=""></td><td id="LY_K" class=""><strong>Cooking lesson</strong></td><td id="DjzA" class="">View the rewards list</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="f4d7451a-ca79-4310-8b0a-a9424b114087"><td id="p{~h" class=""><strong>UC-23</strong></td><td id="LY_K" class=""><strong>Cooking lesson</strong></td><td id="DjzA" class="">Check rewards details</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="96e1711c-3a7a-47bb-9dbf-6aaf62373afd"><td id="p{~h" class=""><strong>UC-24</strong></td><td id="LY_K" class=""><strong>Cooking lesson</strong></td><td id="DjzA" class="">View the learning progress report</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="8bcb0c4b-3017-488e-8e98-082e2e8fa651"><td id="p{~h" class=""><strong>UC-25</strong></td><td id="LY_K" class=""><strong>Cooking Recipes</strong></td><td id="DjzA" class="">Search for cooking recipes</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="0be4766d-bea7-41f1-ba07-26f769ba6191"><td id="p{~h" class=""><strong>UC-26</strong></td><td id="LY_K" class=""><strong>Cooking Recipes</strong></td><td id="DjzA" class="">View cooking recipes list</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="7037d9ab-cf63-4014-b1ed-cb653b81c3f3"><td id="p{~h" class=""><strong>UC-27</strong></td><td id="LY_K" class=""><strong>Cooking Recipes</strong></td><td id="DjzA" class="">View recipe&#x27;s details</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="94260f42-6a26-4ca9-bef1-7d05f822f539"><td id="p{~h" class=""><strong>UC-28</strong></td><td id="LY_K" class=""><strong>Cooking Recipes</strong></td><td id="DjzA" class="">Order missing ingredients</td><td id=";]W~" class="">Purchase the missing ingredients of a specific order</td><td id="I@DM" class="">User</td></tr><tr id="2dc3a7b4-d096-4b08-a044-7283cdd3a1b8"><td id="p{~h" class=""><strong>UC-29</strong></td><td id="LY_K" class=""><strong>Cooking Recipes</strong></td><td id="DjzA" class="">Comment, rate the recipe</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="e72a6853-1907-4dc8-92c4-fdbe35ee2dba"><td id="p{~h" class=""><strong>UC-30</strong></td><td id="LY_K" class=""><strong>Cooking Recipes</strong></td><td id="DjzA" class="">View reviews of the recipe</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="69dab5e7-c288-4ee7-88ca-413767cc2f88"><td id="p{~h" class=""><strong>UC-31</strong></td><td id="LY_K" class=""><strong>Cooking Recipes</strong></td><td id="DjzA" class="">Interact with reviews of the recipe</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="96f2e6c7-e75b-4e48-8b4d-6ad82225d757"><td id="p{~h" class=""><strong>UC-32</strong></td><td id="LY_K" class=""><strong>Cooking Recipes</strong></td><td id="DjzA" class="">Delete reviews</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="c5a117e7-bbb1-4e36-89f5-f690551dcd71"><td id="p{~h" class=""><strong>UC-33</strong></td><td id="LY_K" class=""><strong>Cooking Recipes</strong></td><td id="DjzA" class="">Save recipes</td><td id=";]W~" class="">It can be saved to Favorites, To-Do, or a custom list</td><td id="I@DM" class="">User</td></tr><tr id="5b257836-0920-4d2c-a997-5fa1c958af6f"><td id="p{~h" class=""><strong>UC-34</strong></td><td id="LY_K" class=""><strong>Cooking Recipes</strong></td><td id="DjzA" class="">View list of saved recipes</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="c5d42e60-4ee7-4229-99b1-320d8869e03c"><td id="p{~h" class=""><strong>UC-35</strong></td><td id="LY_K" class=""><strong>Cooking Recipes</strong></td><td id="DjzA" class="">Delete recipes from Saved list</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="088ca3bc-4086-4cd4-b7e1-15e0972bb4cb"><td id="p{~h" class=""><strong>UC-36</strong></td><td id="LY_K" class=""><strong>Market</strong></td><td id="DjzA" class="">See the list of local markets</td><td id=";]W~" class="">See local markets lists through Google Maps</td><td id="I@DM" class="">User</td></tr><tr id="a1621740-7e18-42a5-94f3-5a11afc94645"><td id="p{~h" class=""><strong>UC-37</strong></td><td id="LY_K" class=""><strong>Market</strong></td><td id="DjzA" class="">See details of local markets</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="e9ac14c0-eb68-4e4b-a958-52d189dbdd7a"><td id="p{~h" class=""><strong>UC-38</strong></td><td id="LY_K" class=""><strong>Market</strong></td><td id="DjzA" class="">See directions to the local market</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="64a4a344-450a-4aff-9ba7-f662c63365e4"><td id="p{~h" class=""><strong>UC-39</strong></td><td id="LY_K" class=""><strong>Market</strong></td><td id="DjzA" class="">Save the local market&#x27;s location</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="ae16dbdd-bd6e-49f8-8d75-72864b5dd2ee"><td id="p{~h" class=""><strong>UC-40</strong></td><td id="LY_K" class=""><strong>Market</strong></td><td id="DjzA" class="">Unsave the local market&#x27;s location</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="cd5db4ee-de08-4874-b3b3-3e66ce7dabac"><td id="p{~h" class=""><strong>UC-41</strong></td><td id="LY_K" class=""><strong>Market</strong></td><td id="DjzA" class="">See saved market&#x27;s locations on Maps</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="e5ed032f-2254-4487-b251-504e5add1ce3"><td id="p{~h" class=""><strong>UC-42</strong></td><td id="LY_K" class=""><strong>Supermarket</strong></td><td id="DjzA" class="">Search for ingredients, supermarkets</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="002701ff-4512-4ee1-bca6-8245ae4a9c79"><td id="p{~h" class=""><strong>UC-43</strong></td><td id="LY_K" class=""><strong>Supermarket</strong></td><td id="DjzA" class="">See list of supermarkets</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="28e4bb94-9f75-4fd9-96a0-d6c52b022655"><td id="p{~h" class=""><strong>UC-44</strong></td><td id="LY_K" class=""><strong>Supermarket</strong></td><td id="DjzA" class="">See details of supermarkets</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="02722224-0277-463e-be34-ecdaa2565656"><td id="p{~h" class=""><strong>UC-45</strong></td><td id="LY_K" class=""><strong>Supermarket</strong></td><td id="DjzA" class="">Order products at supermarkets</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="364c3758-2d6b-4d86-85d3-811b79e2f213"><td id="p{~h" class=""><strong>UC-46</strong></td><td id="LY_K" class=""><strong>Supermarket</strong></td><td id="DjzA" class="">Rate supermarkets</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="d89bece5-e5f1-4602-b577-baba714cc50c"><td id="p{~h" class=""><strong>UC-47</strong></td><td id="LY_K" class=""><strong>Supermarket</strong></td><td id="DjzA" class="">See lists of reviews of supermarkets</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="be80c54d-4e30-48e7-ae55-64551aa97ca0"><td id="p{~h" class=""><strong>UC-48</strong></td><td id="LY_K" class=""><strong>Supermarket</strong></td><td id="DjzA" class="">Like reviews</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="927d1a9e-bfe6-4109-bafe-333d98e7d65a"><td id="p{~h" class=""><strong>UC-49</strong></td><td id="LY_K" class=""><strong>Supermarket</strong></td><td id="DjzA" class="">Create new products for the supermarket</td><td id=";]W~" class=""></td><td id="I@DM" class="">Supermarket partner</td></tr><tr id="95a9d1cb-b651-48b9-b336-a9b59be28cd1"><td id="p{~h" class=""><strong>UC-50</strong></td><td id="LY_K" class=""><strong>Supermarket</strong></td><td id="DjzA" class="">Update products</td><td id=";]W~" class=""></td><td id="I@DM" class="">Supermarket partner</td></tr><tr id="b9397e4d-76e3-4f61-9533-4ca9953f3718"><td id="p{~h" class=""><strong>UC-51</strong></td><td id="LY_K" class=""><strong>Supermarket</strong></td><td id="DjzA" class="">Delete products</td><td id=";]W~" class=""></td><td id="I@DM" class="">Supermarket partner</td></tr><tr id="e3b0ec20-9864-4712-a206-1dec8975fb9f"><td id="p{~h" class=""><strong>UC-52</strong></td><td id="LY_K" class=""><strong>Supermarket</strong></td><td id="DjzA" class="">See list of products uploaded</td><td id=";]W~" class=""></td><td id="I@DM" class="">Supermarket partner</td></tr><tr id="356e225c-c7d8-4ae4-97a0-36c810391c5a"><td id="p{~h" class=""><strong>UC-53</strong></td><td id="LY_K" class=""><strong>Supermarket</strong></td><td id="DjzA" class="">See list of supermarket reviews</td><td id=";]W~" class=""></td><td id="I@DM" class="">Supermarket partner</td></tr><tr id="6281b3dc-c449-4388-bdf2-05c24c01baec"><td id="p{~h" class=""><strong>UC-54</strong></td><td id="LY_K" class=""><strong>Order</strong></td><td id="DjzA" class="">See list of orders</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="bc2b9270-185c-4a80-bc88-0d98aa1b7a6d"><td id="p{~h" class=""><strong>UC-55</strong></td><td id="LY_K" class=""><strong>Order</strong></td><td id="DjzA" class="">Apply vouchers and discounts</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="4ef6dfd6-2f1e-4846-b846-e16dbf44d1ef"><td id="p{~h" class=""><strong>UC-56</strong></td><td id="LY_K" class=""><strong>Order</strong></td><td id="DjzA" class="">See list of delivery information created</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="1f0ac216-036f-4e18-acf1-f28340c91560"><td id="p{~h" class=""><strong>UC-57</strong></td><td id="LY_K" class=""><strong>Order</strong></td><td id="DjzA" class="">See delivery information</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="e6589a50-013d-45f8-8ffa-cc3408915a02"><td id="p{~h" class=""><strong>UC-58</strong></td><td id="LY_K" class=""><strong>Order</strong></td><td id="DjzA" class="">Create new delivery information</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="c353ec94-0fbd-4d66-ae0d-81a25c47eb6f"><td id="p{~h" class=""><strong>UC-59</strong></td><td id="LY_K" class=""><strong>Order</strong></td><td id="DjzA" class="">Update delivery information</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="ee5e54a5-d20d-4c73-9c4d-e4474b70a667"><td id="p{~h" class=""><strong>UC-60</strong></td><td id="LY_K" class=""><strong>Order</strong></td><td id="DjzA" class="">Delete delivery information</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="b00fefcd-8321-461b-b2f2-170b0bb789db"><td id="p{~h" class=""><strong>UC-61</strong></td><td id="LY_K" class=""><strong>Order</strong></td><td id="DjzA" class="">Proceed payment</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="7c72e636-6391-4823-98ee-164d587f4153"><td id="p{~h" class=""><strong>UC-62</strong></td><td id="LY_K" class=""><strong>Order</strong></td><td id="DjzA" class="">See order details and status</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="b438714a-2148-4c22-b79c-b8199f111b74"><td id="p{~h" class=""><strong>UC-63</strong></td><td id="LY_K" class=""><strong>Order</strong></td><td id="DjzA" class="">Cancel orders</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="efc665d5-6f23-413b-89c6-9ad1665fa8d6"><td id="p{~h" class=""><strong>UC-64</strong></td><td id="LY_K" class=""><strong>Order</strong></td><td id="DjzA" class="">See list of orders</td><td id=";]W~" class=""></td><td id="I@DM" class="">Supermarket partner</td></tr><tr id="5c1428a1-d921-4f4f-b9a9-77c75cd3d3b9"><td id="p{~h" class=""><strong>UC-65</strong></td><td id="LY_K" class=""><strong>Order</strong></td><td id="DjzA" class="">See order details and status</td><td id=";]W~" class=""></td><td id="I@DM" class="">Supermarket partner</td></tr><tr id="b03f0b90-e814-4102-bf49-a514b4c658f7"><td id="p{~h" class=""><strong>UC-66</strong></td><td id="LY_K" class=""><strong>Order</strong></td><td id="DjzA" class="">Cancel orders</td><td id=";]W~" class=""></td><td id="I@DM" class="">Supermarket partner</td></tr><tr id="da42009d-2efc-47d2-980c-3624a36091eb"><td id="p{~h" class=""><strong>UC-67</strong></td><td id="LY_K" class=""><strong>Order</strong></td><td id="DjzA" class="">Update order status</td><td id=";]W~" class=""></td><td id="I@DM" class="">Supermarket partner</td></tr><tr id="5248b41a-bf7d-4199-b6c8-0fd78600f0eb"><td id="p{~h" class=""><strong>UC-68</strong></td><td id="LY_K" class=""><strong>Order</strong></td><td id="DjzA" class="">Confirm order</td><td id=";]W~" class=""></td><td id="I@DM" class="">Shipment partner</td></tr><tr id="0c8e4302-4683-4102-a887-5d9c1fad5bea"><td id="p{~h" class=""><strong>UC-69</strong></td><td id="LY_K" class=""><strong>Order</strong></td><td id="DjzA" class="">See order details and status</td><td id=";]W~" class=""></td><td id="I@DM" class="">Shipment partner</td></tr><tr id="4a8c9e2e-67cc-4484-952c-3e218f593504"><td id="p{~h" class=""><strong>UC-70</strong></td><td id="LY_K" class=""><strong>Order</strong></td><td id="DjzA" class="">Update order status</td><td id=";]W~" class=""></td><td id="I@DM" class="">Shipment partner</td></tr><tr id="90f32533-8637-4d9a-abf6-4055b99331e5"><td id="p{~h" class=""><strong>UC-71</strong></td><td id="LY_K" class=""><strong>Order</strong></td><td id="DjzA" class="">Cancel orders</td><td id=";]W~" class=""></td><td id="I@DM" class="">Shipment partner</td></tr><tr id="1886380d-5234-4bcf-8a29-b8a1ff3388a5"><td id="p{~h" class=""><strong>UC-72</strong></td><td id="LY_K" class=""><strong>Cart</strong></td><td id="DjzA" class="">Add products to cart</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="37696baf-4b02-4856-9d86-62677bf77e98"><td id="p{~h" class=""><strong>UC-73</strong></td><td id="LY_K" class=""><strong>Cart</strong></td><td id="DjzA" class="">Delete products from cart</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr><tr id="f08e3ee2-a370-4078-9aa3-d6436ab5e7b3"><td id="p{~h" class=""><strong>UC-74</strong></td><td id="LY_K" class=""><strong>Cart</strong></td><td id="DjzA" class="">Update quantity</td><td id=";]W~" class=""></td><td id="I@DM" class="">User</td></tr></tbody></table><h2 id="1189b51b-63ca-8180-ad1e-e7ada9396027" class=""><mark class="highlight-teal">7.2. Use Case Specification</mark></h2><h3 id="1189b51b-63ca-81b1-a244-dae26460cf9c" class=""><strong>UC21. Learn cooking lesson</strong></h3><table id="1189b51b-63ca-81b7-b0c4-e2461e3a1300" class="simple-table"><tbody><tr id="1189b51b-63ca-814d-93d9-d2a009982e5b"><td id="os:y" class=""><strong>Use Case - ID</strong></td><td id="T]JR" class="" style="width:477px">UC21</td></tr><tr id="1189b51b-63ca-8108-a82b-d833fbd3750e"><td id="os:y" class=""><strong>Name</strong></td><td id="T]JR" class="" style="width:477px">Learn cooking lesson</td></tr><tr id="1189b51b-63ca-8194-ae6b-e4837f1ceb9f"><td id="os:y" class=""><strong>Description</strong></td><td id="T]JR" class="" style="width:477px">Learn the knowledge of a cooking topic and take the related quiz</td></tr><tr id="1189b51b-63ca-81c4-bbb3-c77d1d02d911"><td id="os:y" class=""><strong>Actor</strong></td><td id="T]JR" class="" style="width:477px">User</td></tr><tr id="1189b51b-63ca-814d-b2bb-e4522f4e37d6"><td id="os:y" class=""><strong>Priority</strong></td><td id="T]JR" class="" style="width:477px">Must have</td></tr><tr id="1189b51b-63ca-810c-baa6-f871e1bf82f2"><td id="os:y" class=""><strong>Trigger</strong></td><td id="T]JR" class="" style="width:477px">User click “Start” on Learning screen</td></tr><tr id="1189b51b-63ca-8149-be99-d5f440f67ff3"><td id="os:y" class=""><strong>Preconditions</strong></td><td id="T]JR" class="" style="width:477px">The CookEasy app is operational, and the device is connected to the internet</td></tr><tr id="1189b51b-63ca-815c-b457-f300ddb96ed2"><td id="os:y" class=""></td><td id="T]JR" class="" style="width:477px">The user has an account or has registered/logged in</td></tr><tr id="53427fc8-b98e-4b66-852e-42a44971c42a"><td id="os:y" class=""><strong>Postconditions</strong></td><td id="T]JR" class="" style="width:477px">The user&#x27;s progress is saved after completing a lesson</td></tr><tr id="5800f1a7-1e78-4de7-9fcc-f9de3a9d2127"><td id="os:y" class=""></td><td id="T]JR" class="" style="width:477px">The user is presented with updated lessons based on their learning progress</td></tr><tr id="70828e3d-71fc-4881-bf6f-6c809ed9aa6c"><td id="os:y" class=""></td><td id="T]JR" class="" style="width:477px">Performance feedback is given (e.g., streak, XP, rewards)</td></tr></tbody></table><h3 id="1189b51b-63ca-817b-8299-fe60bfe13889" class=""><strong>Flow of Events</strong></h3><ol type="1" id="1189b51b-63ca-814d-b342-facd029b7c9b" class="numbered-list" start="1"><li>Basic Flow</li></ol><table id="1d9d31ab-a8da-40b0-98de-568433736e62" class="simple-table"><tbody><tr id="bbb10ec5-f2d9-44f9-957e-88594b58d80b"><td id="j?E_" class=""><strong>Step</strong></td><td id="bw&lt;d" class=""><strong>Actor</strong></td><td id="sdM[" class=""><strong>Action</strong></td><td id="l^ba" class=""><strong>Note/reference</strong></td></tr><tr id="d9e9ef6f-30f0-4a62-afd1-772d9be54195"><td id="j?E_" class="">BF-01</td><td id="bw&lt;d" class="">User</td><td id="sdM[" class="">Select a lesson</td><td id="l^ba" class=""></td></tr><tr id="8c55951e-2569-4430-9f8f-59c9aa8a466c"><td id="j?E_" class="">BF-02</td><td id="bw&lt;d" class="">System</td><td id="sdM[" class="">Display learning content</td><td id="l^ba" class=""></td></tr><tr id="722c8308-39d7-45b2-9836-31109b8d88f7"><td id="j?E_" class="">BF-03</td><td id="bw&lt;d" class="">User</td><td id="sdM[" class="">Read learning content</td><td id="l^ba" class=""></td></tr><tr id="4f554018-f837-4b08-b679-429c296bf96b"><td id="j?E_" class="">BF-04</td><td id="bw&lt;d" class="">System</td><td id="sdM[" class="">Display the &quot;Lesson finished&quot; pop up</td><td id="l^ba" class=""></td></tr><tr id="21d9ab7a-365e-4595-bf37-9db7d2707a88"><td id="j?E_" class="">BF-05</td><td id="bw&lt;d" class="">User</td><td id="sdM[" class="">Press &quot;Take the test&quot;</td><td id="l^ba" class="">A1</td></tr><tr id="95d1fe17-13b2-4449-b4c5-312f93e3ba3e"><td id="j?E_" class="">BF-06</td><td id="bw&lt;d" class="">System</td><td id="sdM[" class="">Display the test content</td><td id="l^ba" class=""></td></tr><tr id="b1fe5a5e-e5b7-42fb-a0cb-5575572ee3b0"><td id="j?E_" class="">BF-07</td><td id="bw&lt;d" class="">User</td><td id="sdM[" class="">Complete tasks given</td><td id="l^ba" class=""></td></tr><tr id="ba722fdb-7dfe-4a39-8540-b906299e88c7"><td id="j?E_" class="">BF-08</td><td id="bw&lt;d" class="">User</td><td id="sdM[" class="">Press &quot;Submit&quot;</td><td id="l^ba" class=""></td></tr><tr id="1f6714bd-7215-4645-b913-be789e8f0a6d"><td id="j?E_" class="">BF-09</td><td id="bw&lt;d" class="">System</td><td id="sdM[" class="">Display correct answer</td><td id="l^ba" class=""></td></tr><tr id="c085bc17-3237-4490-9893-633804da3dbf"><td id="j?E_" class="">BF-10</td><td id="bw&lt;d" class="">System</td><td id="sdM[" class="">Display suggested recipes</td><td id="l^ba" class="">A2</td></tr><tr id="27710eb1-a782-492a-9928-d6e6370903c7"><td id="j?E_" class="">BF-11</td><td id="bw&lt;d" class="">User</td><td id="sdM[" class="">Save new recipes</td><td id="l^ba" class=""></td></tr><tr id="8499c8f8-44b5-4316-a4ce-73a6eecd7a31"><td id="j?E_" class="">BF-12</td><td id="bw&lt;d" class="">System</td><td id="sdM[" class="">Display the test result</td><td id="l^ba" class=""></td></tr></tbody></table><ol type="1" id="1189b51b-63ca-812d-ba5a-d0552b3e30eb" class="numbered-list" start="2"><li><strong>Alternative Flow</strong></li></ol><p id="223e29e0-e57c-4706-8a87-aeb4fd6d13e1" class=""><em>A1. User does not take the test</em></p><table id="45529713-f977-479e-9da9-afae8e97d3c3" class="simple-table"><tbody><tr id="38638f5d-5d97-4b8d-993b-3a390317f6fc"><td id="FrPy" class=""><strong>Step</strong></td><td id="e`hw" class=""><strong>Actor</strong></td><td id="UOWx" class="">Action</td><td id="^M]q" class="">Note/reference</td></tr><tr id="1dfb2652-1086-4483-8fc1-5d6d4e0fc44c"><td id="FrPy" class="">A1-01</td><td id="e`hw" class="">System</td><td id="UOWx" class="">Return to the Learning screen</td><td id="^M]q" class=""></td></tr></tbody></table><p id="1189b51b-63ca-81a1-9122-ec765b17272e" class=""><em>A2. User earns new rewards</em></p><table id="8fc177e9-b2df-43c0-b925-de90592ba5dc" class="simple-table"><tbody><tr id="fb6e148b-0d8e-480c-b566-f742472f3b2c"><td id="yv|}" class=""><strong>Step</strong></td><td id="_Xdc" class=""><strong>Actor</strong></td><td id="jImi" class="">Action</td><td id="x::c" class="">Note/reference </td></tr><tr id="f9ac58a0-d6e1-44d4-aa3f-c7aef0aba02a"><td id="yv|}" class="">A2-01</td><td id="_Xdc" class="">System</td><td id="jImi" class="">Display the rewards earned</td><td id="x::c" class=""></td></tr><tr id="caef05f7-f7cd-42e9-82be-5a5dfd94b582"><td id="yv|}" class="">A2-02</td><td id="_Xdc" class="">User</td><td id="jImi" class="">Claim rewards</td><td id="x::c" class=""></td></tr><tr id="6da3f516-3783-4de2-94a2-a25c1fc03390"><td id="yv|}" class="">A2-03</td><td id="_Xdc" class="">System</td><td id="jImi" class="">Display suggested recipes</td><td id="x::c" class=""></td></tr><tr id="4286717d-0319-47bf-9f91-731b598e4d92"><td id="yv|}" class="">A2-04</td><td id="_Xdc" class="">User</td><td id="jImi" class="">Save new recipes</td><td id="x::c" class=""></td></tr><tr id="28d08af8-8926-4179-9ce9-a7bb6982590b"><td id="yv|}" class="">A2-05</td><td id="_Xdc" class="">System</td><td id="jImi" class="">Display the test result</td><td id="x::c" class=""></td></tr></tbody></table><h1 id="1189b51b-63ca-81d3-b87d-f8a5b1be1873" class=""><mark class="highlight-teal"><strong>7. High - fidelity Mockup</strong></mark></h1><figure id="1189b51b-63ca-8142-a1a4-f8492cc6580d"><div class="source">https://www.figma.com/design/sCUAHZiXA1CNayXWD13vH5/Cook-Easy?node-id=197-2154&amp;node-type=frame&amp;t=2vBmCczDRy6hBXwl-0</div></figure><hr id="1189b51b-63ca-813a-ac70-e85f20ac31e3"/><h1 id="1189b51b-63ca-812a-b840-ed299a1dd691" class="">Phụ lục</h1><figure id="1189b51b-63ca-81e5-ab57-d643113214f2" class="link-to-page"><a href="https://www.notion.so/Interview-ch-Phan-Tr-My-1189b51b63ca81e5ab57d643113214f2?pvs=21"><span class="icon">💜</span>Interview chị Phan Trà My</a></figure><figure id="1189b51b-63ca-8106-9d1e-e942d854487b" class="link-to-page"><a href="https://www.notion.so/Interview-b-n-Ph-ng-Anh-1189b51b63ca81069d1ee942d854487b?pvs=21"><span class="icon">💜</span>Interview bạn Phương Anh</a></figure><figure id="1189b51b-63ca-81df-ac6b-d0ea39c5cc33" class="link-to-page"><a href="https://www.notion.so/Interview-anh-o-Xu-n-H-ng-1189b51b63ca81dfac6bd0ea39c5cc33?pvs=21"><span class="icon">💜</span>Interview anh Đào Xuân Hưng</a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
